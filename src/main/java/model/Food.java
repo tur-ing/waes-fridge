@@ -1,37 +1,51 @@
 package model;
 
-public class Food {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-	String maker;
-	int expiry_date;
-	String case_type;
+@Entity
+public class Food {
 	
+	@Id
+	Long id;
+	String maker;
+	String name;
+	int expiryDate;
+
 	public Food(String maker) {
 		this.maker = maker;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getMaker() {
 		return maker;
 	}
-	
+
 	public void setMaker(String maker) {
 		this.maker = maker;
 	}
-	
-	public int getExpiry_date() {
-		return expiry_date;
+
+	public String getName() {
+		return name;
 	}
-	
-	public void setExpiry_date(int expiry_date) {
-		this.expiry_date = expiry_date;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public String getCase_type() {
-		return case_type;
+
+	public int getExpiryDate() {
+		return expiryDate;
 	}
-	
-	public void setCase_type(String case_type) {
-		this.case_type = case_type;
+
+	public void setExpiryDate(int expiryDate) {
+		this.expiryDate = expiryDate;
 	}
-	
+
 }
