@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+
+	</h:head>
+	
+	<h:body>
+		<h:outputText>Hello World</h:outputText>
+		<h:commandButton value="Add food" type="button" onclick="PF('addFood').show();"></h:commandButton>
+		<h:dataTable var="food" value="#{inventoryView.foods}">
+			<h:column>
+				<f:facet name="header">Maker</f:facet>
+				<h:outputText value="#{food.maker}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+		<p:dialog header="New food" widgetVar="addFood" modal="true" height="80">
+			<h:form id="addFood"> 
+    			<h:outputText value="Please enter maker:" />
+    			<p:inputText value="#{addFoodView.maker}" />
+    			<p:commandButton value="Add" actionListener="#{addFoodView.addFood}"></p:commandButton>
+			</h:form>
+		</p:dialog>  
+	</h:body>
+</html>
